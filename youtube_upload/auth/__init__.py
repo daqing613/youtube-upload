@@ -4,7 +4,7 @@ import json
 
 import googleapiclient.discovery
 import oauth2client
-import httplib2 
+import httplib2shim
 
 from youtube_upload import lib
 from youtube_upload.auth import console
@@ -38,5 +38,5 @@ def get_resource(client_secrets_file, credentials_file, get_code_callback):
     storage = oauth2client.file.Storage(credentials_file)
     credentials = _get_credentials(flow, storage, get_code_callback)
     if credentials:
-        http = credentials.authorize(httplib2.Http())
+        http = credentials.authorize(httplib2shim.Http())
         return googleapiclient.discovery.build("youtube", "v3", http=http)
