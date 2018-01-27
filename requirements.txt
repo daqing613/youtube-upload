@@ -1,1 +1,3 @@
 httplib2shim
+google-api-python-client 
+progressbar2
